@@ -1,0 +1,29 @@
+[
+  {
+    "id": "REV-001",
+    "name": "風の道の長さを音にする3×3回転ドアパズル",
+    "origin": "DOOOOOR の音迷宮検討",
+    "status": "見送り（元の条件）",
+    "original_evidence": "3×3・内側4柱・固定壁なし・入口出口対角では256配置中234配置が4歩の最短距離になり、音程の分布が極端に偏ったという探索結果",
+    "limitation": "道の距離がほぼ同じになるため、音による選択に幅がない",
+    "revisit_if_any": [
+      {"field": "board_width", "op": ">", "value": 3},
+      {"field": "has_fixed_walls", "op": "==", "value": true}
+    ],
+    "next_test": "変更後の全配置に対する距離分布・異なる距離の種類数・解の偏りを再計測する。復活確定ではない。",
+    "source": "過去のDOOOOOR研究で共有された3×3探索結果。条件や数値の再検証は未実施。"
+  },
+  {
+    "id": "REV-002",
+    "name": "四方向に回る扉",
+    "origin": "DOOOOOR 迷宮化検討",
+    "status": "不採用（単体ではふさげない）",
+    "original_evidence": "四方向扉は単体では通路をふさげず、パズルの主役として採用しなかったという設計判断",
+    "limitation": "ドア単体では行き止まりや通行制限を作れない",
+    "revisit_if_any": [
+      {"field": "placeable_blocker", "op": "==", "value": true}
+    ],
+    "next_test": "置いた鍵・物体が回転範囲や通路をふさぐ場合に、到達不能と可解性を探索する。復活確定ではない。",
+    "source": "過去のDOOOOOR設計会話。鍵が現時点で置けるかは未確定。"
+  }
+]
